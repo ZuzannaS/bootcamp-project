@@ -6,6 +6,12 @@ exports.up = function(knex, Promise) {
       .notNull()
     table.uuid('followerId').references('users.id')
     table.uuid('followingId').references('users.id')
+    table.enu('status', [
+      'ACCEPTED',
+      'DECLINED',
+      'REQUESTED',
+    ])
+    .nullable()
   })
 }
 
